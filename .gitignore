@@ -1,3 +1,10 @@
-# Godot 4+ specific ignores
+# Godot-specific ignores
 .godot/
-/android/
+.tmp/
+export_preset.cfg
+/editor_settings-4.tre
+/editor_settings-3.tre
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
