@@ -1,14 +1,14 @@
 extends Node2D
 
-# Configurações exportadas facilitam o ajuste fino no Inspector
 @export_group("Configurações de Crescimento")
 @export var growth_factor: float = 0.02
 @export var animation_duration: float = 0.3
 
 @export_group("Nós usados")
-@export var GravityField: Area2D
+@export var GravityField: Area2D = null
 
 var current_mass: float = 0.0
+
 
 func _ready():
 	GameManager.mass_changed.connect(_on_mass_updated)
