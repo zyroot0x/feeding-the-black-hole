@@ -6,7 +6,8 @@ extends Area2D
 		# Quando o recurso for colocado, ele já atualiza o Sprite automaticamente!
 		if item_info and has_node("Sprite2D"):
 			$Sprite2D.texture = item_info.sprite_texture
-			$Sprite2D.scale = item_info.scale
+			if is_node_ready():
+				$Sprite2D.scale = item_info.scale
 
 var being_pulled = false
 var target = null
