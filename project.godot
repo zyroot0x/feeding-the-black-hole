@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 GameManager="*res://scripts/autoloads/game_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [layer_names]
 
 2d_physics/layer_1="Player"

@@ -21,17 +21,20 @@ var target = null
 
 func _ready():
 	rotation = randf() * TAU
-	velocity = Vector2(20000, 0).rotated(randf() * TAU)
+	velocity = Vector2(300, 0).rotated(randf() * TAU)
 
 func _process(delta):
 	# move em direção ao player se for válido
 	if being_pulled and target:
-		var direction = (target.global_position - global_position).normalized()
-		direction =+ velocity * delta
-		global_position += direction * delta
-	
+		var gravity_dir = (target.global_position - global_position).normalized()
+		var gravity_force = 500.0 
+		
+		velocity += gravity_dir * gravity_force * delta
+		
+		global_position += velocity * delta
+		
 		var distance = global_position.distance_to(target.global_position)
-		if distance < 10.0:
+		if distance < 360.0:
 			be_consumed()
 
 func start_pull(player_node):

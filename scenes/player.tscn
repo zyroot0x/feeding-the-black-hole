@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciotcpg0y0amm"]
+[gd_scene load_steps=4 format=3 uid="uid://ciotcpg0y0amm"]
 
 [ext_resource type="Script" uid="uid://dq7mng7sqwlom" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dgwcd1cjc2ayj" path="res://assets/player/player.png" id="2_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 6236.7563
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("GravityField")]
-z_index = 10
 script = ExtResource("1_3vyb7")
 GravityField = NodePath("GravityField")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(15.000011, 60.000004)
+scale = Vector2(5.26, 5.26)
+texture = ExtResource("2_g2els")
 
 [node name="GravityField" type="Area2D" parent="."]
 collision_mask = 7
