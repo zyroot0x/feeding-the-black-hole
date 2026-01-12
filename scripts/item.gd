@@ -10,7 +10,8 @@ extends Area2D
 				Sprite.scale = item_info.scale
 
 @export_group("Nós usados")
-@export var Player: AudioStreamPlayer2D = null
+@export var StreamPlayer: AudioStreamPlayer2D = null
+@export var CpuParticles: CPUParticles2D = null
 @export var Sprite: Sprite2D = null
 
 var velocity: Vector2 = Vector2.ZERO
@@ -24,7 +25,7 @@ func _ready():
 	velocity = Vector2(300, 0).rotated(randf() * TAU)
 
 func _process(delta):
-	# move em direção ao player se for válido
+	# move em direção ao StreamPlayer se for válido
 	if being_pulled and target:
 		var gravity_dir = (target.global_position - global_position).normalized()
 		var gravity_force = 500.0 
@@ -37,8 +38,8 @@ func _process(delta):
 		if distance < 360.0:
 			be_consumed()
 
-func start_pull(player_node):
-	target = player_node
+func start_pull(StreamPlayer_node):
+	target = StreamPlayer_node
 	being_pulled = true
 
 func be_consumed():
@@ -50,9 +51,11 @@ func be_consumed():
 		GameManager.add_mass(item_info.mass)
 		visible = false
 	
-	if Player:
-		Player.stream = item_info.collect_sound
-		Player.play()
-		await Player.finished
+	if StreamPlayer:
+		StreamPlayer.stream = item_info.collect_sound
+		StreamPlayer.play()
+		CpuParticles.emitting = true
+		CpuParticles.reparent(get_tree().root)
+		await StreamPlayer.finished
 	
 	queue_free()
