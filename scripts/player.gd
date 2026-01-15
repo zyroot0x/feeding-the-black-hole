@@ -28,6 +28,3 @@ func _on_mass_updated(new_mass: float):
 func _on_gravity_field_area_entered(area: Area2D) -> void:
 	if area.has_method("start_pull"): 
 		area.start_pull(self)
-
-	# debug
-	print("Algo entrou no campo: ", area.name)

@@ -2,7 +2,7 @@ extends Node
 
 signal mass_changed(new_mass)
 
-# sempre que o valor da massa muda, emite o sinal
+# Sempre que o valor da massa muda, emite o sinal
 var total_mass: float = 0.0:
 	set(value):
 		total_mass = value
@@ -10,3 +10,9 @@ var total_mass: float = 0.0:
 
 func add_mass(amount: float) -> void:
 	total_mass += amount
+
+# Debug
+var scroll: bool = false:
+	set(value):
+		scroll = value
+		print(scroll)
