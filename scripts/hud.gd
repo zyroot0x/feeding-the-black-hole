@@ -5,7 +5,7 @@ extends CanvasLayer
 
 func _ready():
 	GameManager.mass_changed.connect(_update_mass_display)
-	_update_mass_display(GameManager.total_mass)
+	_update_mass_display(GameManager.player_mass)
 
 # atualiza o label sempre que a massa do buraco muda
 func _update_mass_display(new_mass: float):

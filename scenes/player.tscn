@@ -4,33 +4,34 @@
 [ext_resource type="Texture2D" uid="uid://dvttyksxmrtv4" path="res://assets/player/player.png" id="2_g2els"]
 [ext_resource type="Script" uid="uid://bg8pc07psgqgp" path="res://scripts/camera.gd" id="3_qhqgy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(804, 1324)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 25.96151
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 9.0
+radius = 12.0
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("GravityField")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("AccretionDisk", "EventHorizon")]
+visibility_layer = 6
 script = ExtResource("1_3vyb7")
-GravityField = NodePath("GravityField")
+AccretionDisk = NodePath("Accretion Disk")
+EventHorizon = NodePath("Event Horizon")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, 2)
 texture = ExtResource("2_g2els")
 
-[node name="GravityField" type="Area2D" parent="."]
+[node name="Accretion Disk" type="Area2D" parent="."]
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField"]
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_g2els")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Accretion Disk"]
+shape = SubResource("CircleShape2D_dqkch")
+
+[node name="Event Horizon" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Event Horizon"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 script = ExtResource("3_qhqgy")
-
-[node name="ConsumeArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumeArea"]
-shape = SubResource("CircleShape2D_qhqgy")

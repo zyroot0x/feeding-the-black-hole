@@ -22,8 +22,15 @@ GameManager="*res://scripts/autoloads/game_manager.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Edible="Itens que aumentam o tamanho do buraco negro."
+
 [layer_names]
 
+2d_render/layer_1="Player"
+2d_render/layer_2="Items"
+2d_render/layer_3="Special"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Items"
 2d_physics/layer_3="Power-Ups"
