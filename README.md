@@ -24,8 +24,9 @@ Desde partículas subatômicas até aglomerados galácticos, nada escapa da sua 
 ## 📂 Estrutura do Projeto
 
 O projeto segue as melhores práticas de organização humana e técnica:
-- `actors/`: Cenas do Player e Itens.
+- `assets/`: Arquivos gráficos do jogo (imagens, sons).
 - `resources/`: Definições de dados (.tres) para fácil balanceamento.
+- `scenes/`: Cenas do Player e Itens.
 - `scripts/`: Toda a lógica central, incluindo o Singleton `GameManager`.
 
 ## 🎮 Como Jogar
@@ -40,4 +41,4 @@ O projeto segue as melhores práticas de organização humana e técnica:
 ## ✍️ Autor
 Desenvolvido por [Diego/zyroot0x] como um estudo de mecânicas progressivas e game feel.
 
-Inspirado pelo conceito de "A Game About Feeding a Black Hole".
+Inspirado pelos conceitos de "A Game About Feeding a Black Hole" & "SPORE™".
