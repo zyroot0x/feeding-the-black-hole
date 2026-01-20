@@ -4,9 +4,10 @@
 
 We are committed to fixing security vulnerabilities in the following versions of our project:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.0.2x  | :white_check_mark: |
+|     Version     | Supported          |
+| --------------- | ------------------ |
+| Latest Release  | :white_check_mark: |
+| < Lastest       | :x:                |
 
 > **Note:** We recommend always using the latest version of the `main` branch to ensure you have the most recent security patches.
 
