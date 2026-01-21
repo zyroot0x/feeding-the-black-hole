@@ -1,4 +1,5 @@
 name: release-please
+
 on:
   push:
     branches:
@@ -13,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release
         with:
           release-type: simple
           package-name: the-eternal-maw
+          include-component-in-tag: true
