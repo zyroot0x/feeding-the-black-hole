@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Mobile")
 [autoload]
 
 GameManager="*res://scripts/autoloads/game_manager.gd"
+LevelManager="*res://scripts/autoloads/level_manager.gd"
 
 [display]
 

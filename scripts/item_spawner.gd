@@ -16,12 +16,15 @@ func _ready():
 # Surgimento dos itens
 func spawn_item():
 	if possible_items.is_empty() or item_scene == null:
-		return
+		print("Erro crítico: Não há itens escolhidos no item_spawner!")
 	
 	var new_item = item_scene.instantiate()
 	var random_data = possible_items.pick_random()
 	
 	new_item.item_data = random_data
+	
+	if GameManager.asteroids == false and new_item.item_data == possible_items[1]:
+		return
 	
 	var angle = randf() * TAU
 	var spawn_pos = Vector2(cos(angle), sin(angle)) * spawn_radius

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://xqodn2j6qmmw"]
 
-[ext_resource type="Script" uid="uid://b3fnmsya2n85j" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://b3fnmsya2n85j" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://b5xjss1taq3an" path="res://scenes/level.tscn" id="2_ekxnf"]
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("actControl", "setControl", "PlayButton", "SettingsButton", "ExitButton", "SettingsExit", "Scroll", "devourer")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("actControl", "setControl", "PlayButton", "SettingsButton", "ExitButton", "SettingsExit", "Scroll", "Devourer", "Asteroids")]
 script = ExtResource("1_l6cm7")
 Level = ExtResource("2_ekxnf")
 actControl = NodePath("Action")
@@ -13,7 +13,8 @@ SettingsButton = NodePath("Action/MarginContainer/VBoxContainer/Settings")
 ExitButton = NodePath("Action/MarginContainer/VBoxContainer/Exit")
 SettingsExit = NodePath("Setting/SettingsExit")
 Scroll = NodePath("Setting/MarginContainer/VBoxContainer/Scroll")
-devourer = NodePath("Setting/MarginContainer/VBoxContainer/Devourer")
+Devourer = NodePath("Setting/MarginContainer/VBoxContainer/Devourer")
+Asteroids = NodePath("Setting/MarginContainer/VBoxContainer/Asteroids")
 
 [node name="Action" type="Control" parent="."]
 visible = false
@@ -84,6 +85,11 @@ alignment = 1
 [node name="Devourer" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "DEVOURER"
+alignment = 1
+
+[node name="Asteroids" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ASTEROIDS"
 alignment = 1
 
 [node name="SettingsExit" type="Button" parent="Setting"]

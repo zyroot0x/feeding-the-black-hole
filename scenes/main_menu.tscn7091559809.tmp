@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://xqodn2j6qmmw"]
+
+[ext_resource type="Script" uid="uid://b3fnmsya2n85j" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://b5xjss1taq3an" path="res://scenes/level.tscn" id="2_ekxnf"]
+
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("actControl", "setControl", "PlayButton", "SettingsButton", "ExitButton", "SettingsExit", "Scroll", "devourer")]
+script = ExtResource("1_l6cm7")
+Level = ExtResource("2_ekxnf")
+actControl = NodePath("Action")
+setControl = NodePath("Setting")
+PlayButton = NodePath("Action/MarginContainer/VBoxContainer/Play")
+SettingsButton = NodePath("Action/MarginContainer/VBoxContainer/Settings")
+ExitButton = NodePath("Action/MarginContainer/VBoxContainer/Exit")
+SettingsExit = NodePath("Setting/SettingsExit")
+Scroll = NodePath("Setting/MarginContainer/VBoxContainer/Scroll")
+devourer = NodePath("Setting/MarginContainer/VBoxContainer/Devourer")
+
+[node name="Action" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Action"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 515.0
+offset_top = 253.5
+offset_right = 597.0
+offset_bottom = 354.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Action/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="Action/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY
+"
+
+[node name="Settings" type="Button" parent="Action/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Exit" type="Button" parent="Action/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="Setting" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Setting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.175
+anchor_top = 1.0
+anchor_right = 15.625001
+anchor_bottom = 15.179001
+offset_top = 268.5
+offset_right = -6.1035156e-05
+offset_bottom = -267.66003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting/MarginContainer"]
+layout_mode = 2
+
+[node name="Scroll" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ZOOM"
+alignment = 1
+
+[node name="Devourer" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "DEVOURER"
+alignment = 1
+
+[node name="Asteroids" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ASTEROIDS"
+alignment = 1
+
+[node name="SettingsExit" type="Button" parent="Setting"]
+layout_mode = 0
+offset_right = 59.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 40
+text = "X"

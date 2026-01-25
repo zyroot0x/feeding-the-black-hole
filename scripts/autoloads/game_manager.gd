@@ -25,4 +25,5 @@ func get_formatted_mass() -> String:
 
 # Debug
 var scroll: bool = false
+var asteroids: bool = false
 var can_eat_everyone: bool = false

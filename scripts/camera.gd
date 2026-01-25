@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var zoom_speed: float = 0.001
+@export var zoom_speed: float = 0.005
 
 func _ready() -> void:
 	GameManager.mass_changed.connect(_on_mass_changed)
@@ -24,11 +24,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	zoom.x = clamp(zoom.x, 0.2, 3.0)
 	zoom.y = clamp(zoom.y, 0.2, 3.0)
 
-func _on_mass_changed(player_mass: float) -> void:
-	if player_mass <= 1.0: return
-	
-	var magnitude = log(player_mass) / log(10)
-	
-	var zoom_factor = 1.0 - (magnitude * zoom_speed)
-	#tween
-	zoom = Vector2(zoom_factor, zoom_factor)
+func _on_mass_changed(_player_mass: float) -> void:
+	#if player_mass <= 1.0: return
+	#
+	#var magnitude = log(player_mass) / log(10)
+	#
+	#var zoom_factor = 1.0 - (magnitude * zoom_speed)
+	##tween
+	#zoom = Vector2(zoom_factor, zoom_factor)
+	return

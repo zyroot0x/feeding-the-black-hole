@@ -1,7 +1,7 @@
 extends Node2D
 
 @export_group("Configurações")
-@export var growth_factor: float = 0.1
+@export var growth_factor: float = 0.4
 @export var animation_duration: float = 0.3
 @export var gravity_strength: float = 100000.0 # Força da gravidade configurável
 

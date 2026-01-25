@@ -7,6 +7,29 @@
 
 [node name="level" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="DeepSpace" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 648)
+repeat_times = 11
+follow_viewport = false
+
+[node name="StarsSprite" type="Sprite2D" parent="CanvasLayer/DeepSpace"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, -1)
+texture = ExtResource("3_w8frs")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="Nebulas" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="NebulasSprite" type="Sprite2D" parent="CanvasLayer/Nebulas"]
+
 [node name="Hud" parent="." instance=ExtResource("1_mx8sn")]
 
 [node name="ItemContainer" type="Node2D" parent="."]
@@ -17,14 +40,3 @@ z_index = 5
 [node name="ItemSpawner" parent="." instance=ExtResource("2_w8frs")]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-z_index = -1
-
-[node name="Background" type="Sprite2D" parent="Parallax2D"]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(0, -1)
-texture = ExtResource("3_w8frs")
-region_enabled = true
-region_rect = Rect2(0, 0, 1152, 648)
