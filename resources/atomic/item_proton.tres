@@ -7,5 +7,5 @@
 script = ExtResource("2_ba2v6")
 name = "Proton"
 sprite_texture = ExtResource("3_fxhoe")
-collision_radius = 10.0
+collision_radius = 25.0
 metadata/_custom_type_script = "uid://d0uj5b0k1nvhm"

@@ -3,18 +3,20 @@
 [ext_resource type="Script" uid="uid://b3fnmsya2n85j" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://b5xjss1taq3an" path="res://scenes/level.tscn" id="2_ekxnf"]
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("sControl", "aControl", "PlayButton", "SettingsButton", "ExitButton", "SettingsExit", "Scroll")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("actControl", "setControl", "PlayButton", "SettingsButton", "ExitButton", "SettingsExit", "Scroll", "devourer")]
 script = ExtResource("1_l6cm7")
 Level = ExtResource("2_ekxnf")
-sControl = NodePath("Setting")
-aControl = NodePath("Action")
+actControl = NodePath("Action")
+setControl = NodePath("Setting")
 PlayButton = NodePath("Action/MarginContainer/VBoxContainer/Play")
 SettingsButton = NodePath("Action/MarginContainer/VBoxContainer/Settings")
 ExitButton = NodePath("Action/MarginContainer/VBoxContainer/Exit")
 SettingsExit = NodePath("Setting/SettingsExit")
 Scroll = NodePath("Setting/MarginContainer/VBoxContainer/Scroll")
+devourer = NodePath("Setting/MarginContainer/VBoxContainer/Devourer")
 
 [node name="Action" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -53,7 +55,6 @@ layout_mode = 2
 text = "EXIT"
 
 [node name="Setting" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -78,6 +79,12 @@ layout_mode = 2
 [node name="Scroll" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "ZOOM"
+alignment = 1
+
+[node name="Devourer" type="CheckButton" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "DEVOURER"
+alignment = 1
 
 [node name="SettingsExit" type="Button" parent="Setting"]
 layout_mode = 0

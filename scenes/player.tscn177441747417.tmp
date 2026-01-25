@@ -46,5 +46,5 @@ shape = SubResource("CircleShape2D_qhqgy")
 debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
+limit_smoothed = true
 script = ExtResource("3_qhqgy")

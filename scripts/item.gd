@@ -15,7 +15,7 @@ var mass: float = 1.0
 var is_dying: bool = false
 
 func _ready():
-	add_to_group("Item")
+	#add_to_group("Item")
 	
 	if item_data: 
 		mass = item_data.mass
@@ -47,14 +47,12 @@ func die():
 	Sprite.visible = false
 	CollisionShape.set_deferred("disabled", true)
 	
-	if item_data and item_data.collect_sound:
-		AudioPlayer.stream = item_data.collect_sound
-		AudioPlayer.play()
-	
 	if CpuParticles:
 		var particles_clone = CpuParticles.duplicate()
 		get_tree().root.add_child(particles_clone)
 		particles_clone.global_position = global_position
+		particles_clone.scale_amount_min = 0.01 * scale.x
+		particles_clone.scale_amount_max = 0.01 * scale.x
 		particles_clone.emitting = true
 		
 		var tween = create_tween()
@@ -62,6 +60,7 @@ func die():
 		tween.tween_callback(particles_clone.queue_free)
 	
 	if AudioPlayer.stream:
+		AudioPlayer.play()
 		await AudioPlayer.finished
 	
 	queue_free()

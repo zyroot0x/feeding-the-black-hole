@@ -3,8 +3,8 @@ extends CanvasLayer
 @export var Level: PackedScene = null
 
 @export_group("Nós usados")
-@export var sControl: Control = null
-@export var aControl: Control = null
+@export var actControl: Control = null
+@export var setControl: Control = null
 
 @export_subgroup("Action Control")
 @export var PlayButton: Button = null
@@ -14,18 +14,21 @@ extends CanvasLayer
 @export_subgroup("Setting Control")
 @export var SettingsExit: Button = null
 @export var Scroll: CheckButton = null
+@export var devourer: CheckButton = null
 
 func _ready() -> void:
-	# aControl
+	# Action Control
 	PlayButton.button_down.connect(_on_play_pressed)
 	SettingsButton.button_down.connect(_on_settings_pressed)
 	ExitButton.button_down.connect(_on_exit_pressed)
 	
-	# sControl
+	# Setting Control
 	SettingsExit.button_down.connect(_on_exit_settings_pressed)
 	Scroll.toggled.connect(_on_scroll_toggled)
+	devourer.toggled.connect(_on_devourer_toggled)
 	
-	sControl.visible = false
+	actControl.visible = true
+	setControl.visible = false
 
 # Action Control
 
@@ -37,8 +40,8 @@ func _on_play_pressed() -> void:
 		print("Erro: Esqueceu de arrastar a cena do jogo para o Inspector!")
 
 func _on_settings_pressed() -> void:
-	aControl.visible = false
-	sControl.visible = true
+	actControl.visible = false
+	setControl.visible = true
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -46,8 +49,8 @@ func _on_exit_pressed() -> void:
 # Setting Control
 
 func _on_exit_settings_pressed() -> void:
-	aControl.visible = true
-	sControl.visible = false
+	actControl.visible = true
+	setControl.visible = false
 
 func _on_scroll_toggled(button_toggled: bool) -> void:
 	
@@ -55,3 +58,9 @@ func _on_scroll_toggled(button_toggled: bool) -> void:
 		GameManager.scroll = button_toggled
 	else:
 		print("Erro Crítico: A variável 'scroll' não existe mais no GameManager!")
+
+func _on_devourer_toggled(button_toggled: bool) -> void:
+	if "can_eat_everyone" in GameManager:
+		GameManager.can_eat_everyone = button_toggled
+	else:
+		print("Erro Crítico: A variável 'can_eat_everyone' não existe mais no GameManager!")

@@ -4,7 +4,7 @@ extends Node
 signal mass_changed(new_mass)
 
 # sempre que o valor da massa muda, emite o sinal
-var player_mass: float = 0.0:
+var player_mass: float = 10.0:
 	set(value):
 		player_mass = value
 		mass_changed.emit(player_mass)
@@ -25,3 +25,4 @@ func get_formatted_mass() -> String:
 
 # Debug
 var scroll: bool = false
+var can_eat_everyone: bool = false
