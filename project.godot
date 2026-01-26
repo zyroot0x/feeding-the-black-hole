@@ -23,6 +23,10 @@ LevelManager="*res://scripts/autoloads/level_manager.gd"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/copilot-advanced/plugin.cfg")
+
 [global_group]
 
 Item="Itens que aumentam o tamanho do buraco negro."
